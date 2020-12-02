@@ -33,3 +33,27 @@ def has_congruence_relation(a, b, n):
   remainder_a = a % n
   remainder_b = b % n
   return remainder_a == remainder_b
+
+def primo(n) :
+    #Recebe um número inteiro e retorna True caso ele seja primo ou False caso
+    #seja composto.
+    #A ideia é a variável j funcionar como limite para até onde testaremos o
+    #resto da divisão de i por j. Só precisamos testar até a parte inteira da raiz
+    #de i para definir se o número é ou não primo
+    
+    import math
+
+    if n == 1 or n < 1 :
+        return False
+    
+    i = n
+    j = math.sqrt(i)
+    j = math.trunc(j)
+
+    while j >= 1 :
+        if j == 1 :
+            return True
+        elif i % j == 0 :
+            return False
+        else :
+            j -= 1
