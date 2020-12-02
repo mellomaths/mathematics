@@ -62,7 +62,7 @@ def prime(n) :
       i -= 1
 
 
-def distance(x1, y1, z1, x2, y2, z2) :
+def distance_between_points(x1, y1, z1, x2, y2, z2) :
   """
   Calculates the distance between two points in space (3D).
   To use this function in 2D, pass both z1 and z2 as 0.
