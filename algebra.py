@@ -60,3 +60,16 @@ def prime(n) :
       return False
     else :
       i -= 1
+
+
+def distance(x1, y1, z1, x2, y2, z2) :
+    """
+    Calculates the distance between two points in space
+    """
+    import math
+    distX = (x2 - x1) * (x2 - x1)
+    distY = (y2 - y1) * (y2 - y1)
+    distZ = (z2 - z1) * (z2 - z1)
+    distance = math.sqrt(distX + distY + distZ)
+    return distance
+
