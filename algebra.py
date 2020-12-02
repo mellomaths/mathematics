@@ -1,3 +1,5 @@
+import math
+
 def greatest_common_divisor(a, b):
   """
   Based on the Euclidean Algorithm, this function will calculate the greatest common divisor between two integers.
@@ -34,29 +36,30 @@ def has_congruence_relation(a, b, n):
   remainder_b = b % n
   return remainder_a == remainder_b
 
-def primo(n) :
-    #Recebe um número inteiro e retorna True caso ele seja primo ou False caso
-    #seja composto.
-    #A ideia é a variável j funcionar como limite para até onde testaremos o
-    #resto da divisão de i por j. Só precisamos testar até a parte inteira da raiz
-    #de i para definir se o número é ou não primo
-    
-    import math
 
-    if n == 1 or n < 1 :
-        return False
-    
-    i = n
-    j = math.sqrt(i)
-    j = math.trunc(j)
+def prime(n) :
+  """
+  Defines if an integer is a prime number or not.
 
-    while j >= 1 :
-        if j == 1 :
-            return True
-        elif i % j == 0 :
-            return False
-        else :
-            j -= 1
+  Keyword arguments:
+  n -- an integer
+
+  Return value: boolean
+  """
+
+  x = abs(n)
+  if x == 1 or x < 1 :
+    return False
+  
+  square = math.trunc(math.sqrt(x))
+  i = square
+  while i >= 1 :
+    if i == 1 :
+      return True
+    elif x % i == 0 :
+      return False
+    else :
+      i -= 1
 
 
 def distance(x1, y1, z1, x2, y2, z2) :
