@@ -1,5 +1,6 @@
 import math
 
+
 def greatest_common_divisor(a, b):
   """
   Based on the Euclidean Algorithm, this function will calculate the greatest common divisor between two integers.
@@ -7,6 +8,8 @@ def greatest_common_divisor(a, b):
   Keyword arguments:
   a -- an integer
   b -- another integer
+
+  Returns: an integer
   """
 
   remainder = a % b
@@ -30,6 +33,8 @@ def has_congruence_relation(a, b, n):
   a -- an integer
   b -- another integer
   n -- another integer (modulo)
+
+  Returns: a boolean
   """
 
   remainder_a = a % n
@@ -44,7 +49,7 @@ def prime(n) :
   Keyword arguments:
   n -- an integer
 
-  Return value: boolean
+  Returns: an boolean
   """
 
   x = abs(n)
@@ -74,6 +79,8 @@ def distance_between_points(x1, y1, z1, x2, y2, z2) :
   x2 - x position of point 2
   y2 - y position of point 2
   z2 - z position of point 2
+
+  Returns: a float
   """
 
   distance_x = (x2 - x1) * (x2 - x1)
