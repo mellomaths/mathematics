@@ -65,3 +65,17 @@ def prime(n) :
       return False
     else :
       i -= 1
+
+
+def are_coprime(a, b):
+  """
+  Two integers a and b are relatively prime, mutually prime, or coprime 
+  if the only positive integer that evenly divides (is a divisor of) both of them is 1
+
+  Keyword arguments:
+  a -- an integer
+  b -- another integer
+
+  Returns: a boolean
+  """
+  return greatest_common_divisor(a, b) == 1
