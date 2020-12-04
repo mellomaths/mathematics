@@ -49,7 +49,7 @@ def prime(n) :
   Keyword arguments:
   n -- an integer
 
-  Returns: an boolean
+  Returns: a boolean
   """
 
   x = abs(n)
