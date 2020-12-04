@@ -12,3 +12,20 @@ def factorial(n):
     return 1
     
   return n * factorial(n - 1)
+
+
+def fibonacci(n):
+  """
+  In mathematics, the Fibonacci numbers, commonly denoted Fn, form a sequence, called the Fibonacci sequence, 
+  such that each number is the sum of the two preceding ones, starting from 0 and 1.
+
+  Keyword arguments:
+  n -- an integer
+
+  Returns: an integer
+  """
+
+  if n <= 1:
+    return n
+
+  return fibonacci(n-1) + fibonacci(n-2)  
