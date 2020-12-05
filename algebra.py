@@ -110,12 +110,18 @@ def prime_factorization(n):
   factorization = []
   x = n
   i = 2
+  factor = 0
   while x != 1:
     if is_prime(i) and x % i == 0:
       x = x / i
-      if i not in factorization:
-        factorization.append(i)
+      factor += 1
+      if factor > 1:
+        factorization.pop()
+        factorization.append((i, factor))
+      else:
+        factorization.append((i, factor))
     else:
       i += 1
+      factor = 0
 
   return factorization
