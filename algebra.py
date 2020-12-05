@@ -107,6 +107,14 @@ def phi(n):
 
 
 def prime_factorization(n):
+  """
+  Prime factorization is the decomposition of a composite number into a product of prime numbers.
+
+  Keyword arguments:
+  n -- an integer
+  
+  Returns: a list of tuples (a, x), "a" being the prime number and "x" the integer of power, which mean a ** x, "a" to the power of "x"
+  """
   factorization = []
   
   if is_prime(n):
