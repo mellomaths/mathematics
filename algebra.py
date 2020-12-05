@@ -36,10 +36,8 @@ def has_congruence_relation(a, b, n):
 
   Returns: a boolean
   """
-
-  remainder_a = a % n
-  remainder_b = b % n
-  return remainder_a == remainder_b
+  
+  return a % n == b % n
 
 
 def is_prime(n) :
