@@ -13,7 +13,7 @@ def greatest_common_divisor(a, b):
   """
 
   remainder = a % b
-  if (remainder == 0):
+  if remainder == 0:
     return b
     
   return abs(greatest_common_divisor(b, remainder))
