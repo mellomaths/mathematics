@@ -152,3 +152,24 @@ def fermat_factorization(n) :
         return False
 
     return int(x - y), int(x + y)
+
+
+def multiplicative_order(a, n):
+  """
+  Given an integer a and a positive integer n coprime to a, 
+  the multiplicative order of a modulo n is the smallest positive integer k with
+
+  a ** k congruent 1 (mod n)
+
+  Keyword arguments:
+  a -- an integer
+  n -- an integer (modulo)
+  
+  Returns: an integer (k)
+  """
+  
+  i = 2
+  while (a ** i) % n != 1:
+    i += 1
+
+  return i
