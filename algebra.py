@@ -94,6 +94,9 @@ def phi(n):
 
   if n == 1:
     return 1
+
+  # if is_prime(n):
+  #   return n - 1
   
   coprimes = []
   for i in range(n):
