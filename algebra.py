@@ -108,6 +108,10 @@ def phi(n):
 
 def prime_factorization(n):
   factorization = []
+  
+  if is_prime(n):
+    return [(n, 1)]
+
   x = n
   i = 2
   factor = 0
