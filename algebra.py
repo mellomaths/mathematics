@@ -79,3 +79,25 @@ def are_coprime(a, b):
   Returns: a boolean
   """
   return greatest_common_divisor(a, b) == 1
+
+
+def phi(n):
+  """
+  Calculate how many relative primes there are up to a given integer.
+  Euler's totient function counts the positive integers up to a given integer n that are relatively prime to n.
+
+  Keyword arguments:
+  n -- an integer
+
+  Returns: an integer
+  """
+
+  if n == 1:
+    return 1
+  
+  coprimes = []
+  for i in range(n):
+    if are_coprime(i, n):
+      coprimes.append(i)
+  
+  return len(coprimes)
