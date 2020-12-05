@@ -42,7 +42,7 @@ def has_congruence_relation(a, b, n):
   return remainder_a == remainder_b
 
 
-def prime(n) :
+def is_prime(n) :
   """
   Defines if an integer is a prime number or not.
 
