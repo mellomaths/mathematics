@@ -104,3 +104,18 @@ def phi(n):
       coprimes.append(i)
   
   return len(coprimes)
+
+
+def prime_factorization(n):
+  factorization = []
+  x = n
+  i = 2
+  while x != 1:
+    if is_prime(i) and x % i == 0:
+      x = x / i
+      if i not in factorization:
+        factorization.append(i)
+    else:
+      i += 1
+
+  return factorization
