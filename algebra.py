@@ -58,12 +58,12 @@ def prime(n) :
   
   square = math.trunc(math.sqrt(x))
   i = square
-  while i >= 1 :
-    if i == 1 :
+  while i >= 1:
+    if i == 1:
       return True
-    elif x % i == 0 :
+    elif x % i == 0:
       return False
-    else :
+    else:
       i -= 1
 
 
