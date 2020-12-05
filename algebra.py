@@ -36,7 +36,7 @@ def has_congruence_relation(a, b, n):
 
   Returns: a boolean
   """
-  
+
   return a % n == b % n
 
 
@@ -135,6 +135,7 @@ def prime_factorization(n):
       factor = 0
 
   return factorization
+
 
 def fermat_factorization(n) :
   """
