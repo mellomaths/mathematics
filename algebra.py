@@ -125,3 +125,30 @@ def prime_factorization(n):
       factor = 0
 
   return factorization
+
+def fermat_factorization(n) :
+    """
+    Given an odd integer n, finds 2 factors of an integer n using
+    Fermat's Algorithm, or concludes that n is a prime number
+
+    Keyword arguments:
+    n -- an integer
+    
+    Returns: two integers or False in case n is a prime
+    """
+
+    if n % 2 == 0 :
+        return 2, n//2
+
+    x = int(math.sqrt(n))
+    if x**2 == n :
+        return x
+    
+    y = 0.1
+    while (y != int(y) and x <= (n + 1)/2) :
+        x += 1
+        y = math.sqrt(x**2 - n)
+    if x >= (n + 1)/2 :
+        return False
+
+    return int(x - y), int(x + y)
