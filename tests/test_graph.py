@@ -21,7 +21,7 @@ class TestGraph(unittest.TestCase):
             (6, 8),
             (7, 8)
         ]
-        return { "n": n, "edges": edges }
+        return { "n": n, "edges": edges, "degrees": [3 for i in range(8)] }
 
     def generate_random_edges(self, n, m):
         edges = []
@@ -38,6 +38,16 @@ class TestGraph(unittest.TestCase):
         self.assertEqual(graph.number_of_vertices, number_of_vertices)
         self.assertEqual(graph.number_of_edges, len(edges))
         self.assertEqual(graph.edges, edges)
+
+    def test_graph_degrees(self):
+        mock_graph = self.mock_graph()
+        number_of_vertices = mock_graph["n"]
+        edges = mock_graph["edges"]
+        graph = Graph(number_of_vertices, edges)
+
+        degrees = mock_graph["degrees"]
+        self.assertListEqual(graph.degrees(), degrees)
+        self.assertEqual(graph.node_degree(1), degrees[1])
 
 
 if __name__ == "__main__":
