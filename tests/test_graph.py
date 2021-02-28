@@ -80,6 +80,12 @@ class TestGraph(unittest.TestCase):
             [3, 5, 6]
         ]
         self.assertEqual(graph.representation.adjacency_list(), adj_list)
+        total_length_adj_list = sum([len(element_adj_list) for element_adj_list in adj_list])
+
+        # Rule: if the graph is not directed, 
+        #  the sum of lengths of all adjacency lists should be equal to 2 * total of edges
+        #  because an edge (u, v) appears twice because edge (v, u) also exists
+        self.assertEqual(2 * graph.number_of_edges, total_length_adj_list)
 
 
 if __name__ == "__main__":
