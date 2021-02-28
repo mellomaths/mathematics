@@ -28,13 +28,13 @@ class Representation:
         self.number_of_vertices = number_of_vertices
         self.number_of_edges = len(edges)
 
-    def incidence_matrix(self) -> list:
+    def adjacency_matrix(self) -> list:
         n = self.number_of_vertices
-        ind_matrix = [[0 for i in range(n)] for i in range(n)]
+        adj_matrix = [[0 for i in range(n)] for i in range(n)]
         for edge in self.edges:
-            ind_matrix[edge[0] - 1][edge[1] - 1] = 1
-            ind_matrix[edge[1] - 1][edge[0] - 1] = 1
-        return ind_matrix
+            adj_matrix[edge[0] - 1][edge[1] - 1] = 1
+            adj_matrix[edge[1] - 1][edge[0] - 1] = 1
+        return adj_matrix
 
     def adjacency_list(self) -> list:
         n = self.number_of_vertices

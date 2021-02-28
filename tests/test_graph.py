@@ -44,7 +44,7 @@ class TestGraph(unittest.TestCase):
         self.assertListEqual(graph.degrees(), [3, 3, 3, 3, 3, 3, 3, 3])
         self.assertEqual(graph.node_degree(1), 3)
 
-    def test_graph_representation_incidence_matrix(self):
+    def test_graph_representation_adjacency_matrix(self):
         graph = self.graph
         matrix = [
             [0, 1, 0, 1, 1, 0, 0, 0],
@@ -56,16 +56,16 @@ class TestGraph(unittest.TestCase):
             [0, 0, 1, 0, 1, 0, 0, 1], 
             [0, 0, 0, 1, 0, 1, 1, 0]
         ]
-        self.assertEqual(len(graph.representation.incidence_matrix()), 8)
-        self.assertTrue(len(graph.representation.incidence_matrix()[0]), 8)
-        self.assertTrue(len(graph.representation.incidence_matrix()[1]), 8)
-        self.assertTrue(len(graph.representation.incidence_matrix()[2]), 8)
-        self.assertTrue(len(graph.representation.incidence_matrix()[3]), 8)
-        self.assertTrue(len(graph.representation.incidence_matrix()[4]), 8)
-        self.assertTrue(len(graph.representation.incidence_matrix()[5]), 8)
-        self.assertTrue(len(graph.representation.incidence_matrix()[6]), 8)
-        self.assertTrue(len(graph.representation.incidence_matrix()[7]), 8)
-        self.assertEqual(graph.representation.incidence_matrix(), matrix)
+        self.assertEqual(len(graph.representation.adjacency_matrix()), 8)
+        self.assertTrue(len(graph.representation.adjacency_matrix()[0]), 8)
+        self.assertTrue(len(graph.representation.adjacency_matrix()[1]), 8)
+        self.assertTrue(len(graph.representation.adjacency_matrix()[2]), 8)
+        self.assertTrue(len(graph.representation.adjacency_matrix()[3]), 8)
+        self.assertTrue(len(graph.representation.adjacency_matrix()[4]), 8)
+        self.assertTrue(len(graph.representation.adjacency_matrix()[5]), 8)
+        self.assertTrue(len(graph.representation.adjacency_matrix()[6]), 8)
+        self.assertTrue(len(graph.representation.adjacency_matrix()[7]), 8)
+        self.assertEqual(graph.representation.adjacency_matrix(), matrix)
     
     def test_graph_representation_adjacency_list(self):
         graph = self.graph
