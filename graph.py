@@ -6,6 +6,20 @@ class Graph:
         self.number_of_edges = len(edges)
         self.representation = Representation(number_of_vertices, edges)
 
+    def degrees(self):
+        d = [0 for i in range(self.number_of_vertices)]
+        adjacency_list = self.representation.adjacency_list()
+        for i, node_adj_list in enumerate(adjacency_list):
+            d[i] = len(node_adj_list)
+
+        return d
+
+    def node_degree(self, node_id: int):
+        node_id = node_id - 1
+        degrees = self.degrees()
+        node_degree = degrees[node_id]
+        return node_degree
+
 
 class Representation:
 
@@ -29,21 +43,3 @@ class Representation:
             adj_list[edge[0] - 1].append(edge[1] - 1)
             adj_list[edge[1] - 1].append(edge[0] - 1)
         return adj_list
-
-
-# n = 8
-# edges = [
-#     (1, 2),
-#     (1, 4),
-#     (1, 5),
-#     (2, 3),
-#     (2, 6),
-#     (3, 4),
-#     (3, 7),
-#     (4, 8),
-#     (5, 6),
-#     (5, 7),
-#     (6, 8),
-#     (7, 8)
-# ]
-# graph = Graph(n, edges)
