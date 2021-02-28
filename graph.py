@@ -43,3 +43,10 @@ class Representation:
             adj_list[edge[0] - 1].append(edge[1] - 1)
             adj_list[edge[1] - 1].append(edge[0] - 1)
         return adj_list
+    
+    def directed_adjacency_list(self) -> list:
+        n = self.number_of_vertices
+        adj_list = [[] for i in range(n)]
+        for edge in self.edges:
+            adj_list[edge[0] - 1].append(edge[1] - 1)
+        return adj_list

@@ -87,6 +87,22 @@ class TestGraph(unittest.TestCase):
         #  because an edge (u, v) appears twice because edge (v, u) also exists
         self.assertEqual(2 * graph.number_of_edges, total_length_adj_list)
 
+    def test_graph_representation_directed_adjacency_list(self):
+        graph = self.graph
+        directed_adj_list = [
+            [1, 3, 4], 
+            [2, 5],
+            [3, 6],
+            [7],
+            [5, 6],
+            [7],
+            [7],
+            []
+        ]
+        self.assertListEqual(graph.representation.directed_adjacency_list(), directed_adj_list)
+        total_length_adj_list = sum([len(element_adj_list) for element_adj_list in directed_adj_list])
+        self.assertEqual(graph.number_of_edges, total_length_adj_list)
+
 
 if __name__ == "__main__":
     unittest.main()
