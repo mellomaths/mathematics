@@ -6,7 +6,7 @@ class Graph:
         self.number_of_edges = len(edges)
         self.representation = Representation(number_of_vertices, edges)
 
-    def degrees(self):
+    def degrees(self) -> list:
         d = [0 for i in range(self.number_of_vertices)]
         adjacency_list = self.representation.adjacency_list()
         for i, node_adj_list in enumerate(adjacency_list):
@@ -14,7 +14,7 @@ class Graph:
 
         return d
 
-    def node_degree(self, node_id: int):
+    def node_degree(self, node_id: int) -> int:
         node_id = node_id - 1
         degrees = self.degrees()
         node_degree = degrees[node_id]
@@ -28,7 +28,7 @@ class Representation:
         self.number_of_vertices = number_of_vertices
         self.number_of_edges = len(edges)
 
-    def incidence_matrix(self):
+    def incidence_matrix(self) -> list:
         n = self.number_of_vertices
         ind_matrix = [[0 for i in range(n)] for i in range(n)]
         for edge in self.edges:
@@ -36,7 +36,7 @@ class Representation:
             ind_matrix[edge[1] - 1][edge[0] - 1] = 1
         return ind_matrix
 
-    def adjacency_list(self):
+    def adjacency_list(self) -> list:
         n = self.number_of_vertices
         adj_list = [[] for i in range(n)]
         for edge in self.edges:
