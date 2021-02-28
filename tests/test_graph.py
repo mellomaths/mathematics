@@ -5,9 +5,10 @@ import random
 
 class TestGraph(unittest.TestCase):
 
-    def mock_graph(self):
-        n = 8
-        edges = [
+
+    def setUp(self) -> None:
+        self.number_of_vertices = 8
+        self.edges = [
             (1, 2),
             (1, 4),
             (1, 5),
@@ -21,9 +22,14 @@ class TestGraph(unittest.TestCase):
             (6, 8),
             (7, 8)
         ]
-        return { "n": n, "edges": edges, "degrees": [3 for i in range(8)] }
+        self.graph = Graph(self.number_of_vertices, self.edges)
 
-    def generate_random_edges(self, n, m):
+    def tearDown(self) -> None:
+        self.number_of_vertices = 0
+        self.edges = []
+        self.graph = None
+
+    def generate_random_edges(self, n, m) -> list:
         edges = []
         for i in range(m):
             e = (random.randint(0, n), random.randint(0, n))
@@ -31,23 +37,13 @@ class TestGraph(unittest.TestCase):
         return edges
 
     def test_graph_init(self):
-        mock_graph = self.mock_graph()
-        number_of_vertices = mock_graph["n"]
-        edges = mock_graph["edges"]
-        graph = Graph(number_of_vertices, edges)
-        self.assertEqual(graph.number_of_vertices, number_of_vertices)
-        self.assertEqual(graph.number_of_edges, len(edges))
-        self.assertEqual(graph.edges, edges)
+        graph = self.graph
+        self.assertEqual(graph.number_of_edges, len(self.edges))
 
     def test_graph_degrees(self):
-        mock_graph = self.mock_graph()
-        number_of_vertices = mock_graph["n"]
-        edges = mock_graph["edges"]
-        graph = Graph(number_of_vertices, edges)
-
-        degrees = mock_graph["degrees"]
-        self.assertListEqual(graph.degrees(), degrees)
-        self.assertEqual(graph.node_degree(1), degrees[1])
+        graph = self.graph
+        self.assertListEqual(graph.degrees(), [3, 3, 3, 3, 3, 3, 3, 3])
+        self.assertEqual(graph.node_degree(1), 3)
 
 
 if __name__ == "__main__":
