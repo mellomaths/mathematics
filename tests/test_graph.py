@@ -42,7 +42,7 @@ class TestGraph(unittest.TestCase):
     def test_graph_degrees(self):
         graph = self.graph
         self.assertListEqual(graph.degrees(), [3, 3, 3, 3, 3, 3, 3, 3])
-        self.assertEqual(graph.node_degree(1), 3)
+        self.assertEqual(graph.vertex_degree(1), 3)
 
     def test_graph_representation_adjacency_matrix(self):
         graph = self.graph

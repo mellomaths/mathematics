@@ -9,16 +9,16 @@ class Graph:
     def degrees(self) -> list:
         d = [0 for i in range(self.number_of_vertices)]
         adjacency_list = self.representation.adjacency_list()
-        for i, node_adj_list in enumerate(adjacency_list):
-            d[i] = len(node_adj_list)
+        for i, vertex_adj_list in enumerate(adjacency_list):
+            d[i] = len(vertex_adj_list)
 
         return d
 
-    def node_degree(self, node_id: int) -> int:
-        node_id = node_id - 1
+    def vertex_degree(self, vertex_id: int) -> int:
+        vertex_id = vertex_id - 1
         degrees = self.degrees()
-        node_degree = degrees[node_id]
-        return node_degree
+        vertex_degree = degrees[vertex_id]
+        return vertex_degree
 
 
 class Representation:
