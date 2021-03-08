@@ -20,6 +20,39 @@ class Graph:
         vertex_degree = degrees[vertex_id]
         return vertex_degree
 
+    def is_connected(self) -> bool:
+        fathers = [0 for i in range(self.number_of_vertices)]
+
+        for edge in self.edges:
+            fathers = UnionFind.union(fathers, edge[0] - 1, edge[1] - 1)
+        
+        components = 0
+        for i in range(len(fathers)):
+            if fathers[i] == i:
+                components += 1
+        
+        return components == 1
+
+
+class UnionFind:
+
+    @staticmethod
+    def find(fathers: list, p: int) -> int:
+        if fathers[p] != p:
+            fathers[p] = UnionFind.find(fathers, fathers[p])
+        return fathers[p]
+
+    @staticmethod
+    def union(fathers: list, p: int, q: int) -> list:
+        p_father = UnionFind.find(fathers, p)
+        q_father = UnionFind.find(fathers, q)
+        if p_father < q_father:
+            fathers[q_father] = p_father
+        else:
+            fathers[p_father] = q_father
+        
+        return fathers
+
 
 class Representation:
 

@@ -103,6 +103,10 @@ class TestGraph(unittest.TestCase):
         total_length_adj_list = sum([len(element_adj_list) for element_adj_list in directed_adj_list])
         self.assertEqual(graph.number_of_edges, total_length_adj_list)
 
+    def test_graph_is_connected(self):
+        graph = self.graph
+        self.assertTrue(graph.is_connected())
+
 
 if __name__ == "__main__":
     unittest.main()
