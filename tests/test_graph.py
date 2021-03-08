@@ -107,6 +107,10 @@ class TestGraph(unittest.TestCase):
         graph = self.graph
         self.assertTrue(graph.is_connected())
 
+    def test_graph_fathers(self):
+        graph = self.graph
+        self.assertListEqual(graph.fathers(), [0, 0, 0, 0, 0, 0, 0, 0])
+
 
 if __name__ == "__main__":
     unittest.main()

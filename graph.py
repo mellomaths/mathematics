@@ -20,11 +20,16 @@ class Graph:
         vertex_degree = degrees[vertex_id]
         return vertex_degree
 
-    def is_connected(self) -> bool:
-        fathers = [0 for i in range(self.number_of_vertices)]
+    def fathers(self) -> list:
+        fathers = [i for i in range(self.number_of_vertices)]
 
         for edge in self.edges:
             fathers = UnionFind.union(fathers, edge[0] - 1, edge[1] - 1)
+
+        return fathers
+
+    def is_connected(self) -> bool:
+        fathers = self.fathers()
         
         components = 0
         for i in range(len(fathers)):
