@@ -1,18 +1,27 @@
 class Graph:
 
+    """
+    Vertex ID should be greater than 0, starting with 1 to the total number of vertices.
+
+    Example:
+        if number_of_vertices is equals to 3:
+        the graph should have 3 vertices: 1, 2 and 3.
+    """
+
     def __init__(self, number_of_vertices: int, edges: list) -> None:
         self.edges = edges
         self.number_of_vertices = number_of_vertices
         self.number_of_edges = len(edges)
         self.representation = Representation(number_of_vertices, edges)
 
+
     def degrees(self) -> list:
-        d = [0 for i in range(self.number_of_vertices)]
+        degrees = [0 for i in range(self.number_of_vertices)]
         adjacency_list = self.representation.adjacency_list()
         for i, vertex_adj_list in enumerate(adjacency_list):
-            d[i] = len(vertex_adj_list)
+            degrees[i] = len(vertex_adj_list)
 
-        return d
+        return degrees
 
     def vertex_degree(self, vertex_id: int) -> int:
         vertex_id = vertex_id - 1
@@ -21,6 +30,7 @@ class Graph:
         return vertex_degree
 
     def fathers(self) -> list:
+        # Every vertex is itself's father
         fathers = [i for i in range(self.number_of_vertices)]
 
         for edge in self.edges:
