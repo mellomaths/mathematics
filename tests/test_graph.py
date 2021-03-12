@@ -129,7 +129,7 @@ class TestGraph(unittest.TestCase):
             (8, 10)
         ]
         graph = Graph(number_of_vertices, edges)
-        print(graph.bridges())
+        self.assertListEqual(graph.bridges(), [(4, 5), (1, 6), (7, 8), (7, 9)])
 
 
 if __name__ == "__main__":
