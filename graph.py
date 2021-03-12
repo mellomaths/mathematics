@@ -48,6 +48,38 @@ class Graph:
         
         return components == 1
 
+    def bridges(self) -> list:
+        n = self.number_of_vertices
+        visit_order = [0 for i in range(n)]
+        low = [0 for i in range(n)]
+        adjacency_matrix = self.representation.adjacency_matrix()
+        bridges = []
+        order = 0
+        for i in range(len(n)):
+            if visit_order[i] == 0:
+                bridges = Search.bridges(bridges, order, visit_order, low, adjacency_matrix, n, i, i)
+        return bridges
+
+
+class Search:
+
+    @staticmethod
+    def bridges(bridges: list, order: int, visit_order: list, low: list, adjacency_matrix: list, number_of_vertices: int, father: int, child: int):
+        order += 1
+        visit_order[child] = order
+        for i in range(number_of_vertices):
+            if adjacency_matrix[child][i] == 1: # has an edge between "child" and "i"
+                if visit_order[i] == 0: # not visited
+                    bridges = Search.bridges(visit_order, low, adjacency_matrix, number_of_vertices, child, i)
+                    if low[i] == visit_order[i]:
+                        bridges.append((child, i))
+                        # thats a bridge
+                    low[child] = min(low[child], low[i])
+                elif i != father: # is not the current father
+                    # updates the lowest
+                    low[child] = min(low[child], visit_order[i])
+        return bridges
+
 
 class UnionFind:
 
