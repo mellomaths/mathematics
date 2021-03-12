@@ -55,7 +55,7 @@ class Graph:
         adjacency_matrix = self.representation.adjacency_matrix()
         bridges = []
         order = 0
-        for i in range(len(n)):
+        for i in range(n):
             if visit_order[i] == 0:
                 bridges = Search.bridges(bridges, order, visit_order, low, adjacency_matrix, n, i, i)
         return bridges
@@ -70,7 +70,7 @@ class Search:
         for i in range(number_of_vertices):
             if adjacency_matrix[child][i] == 1: # has an edge between "child" and "i"
                 if visit_order[i] == 0: # not visited
-                    bridges = Search.bridges(visit_order, low, adjacency_matrix, number_of_vertices, child, i)
+                    bridges = Search.bridges(bridges, order, visit_order, low, adjacency_matrix, number_of_vertices, child, i)
                     if low[i] == visit_order[i]:
                         bridges.append((child, i))
                         # thats a bridge
