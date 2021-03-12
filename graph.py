@@ -71,9 +71,8 @@ class Search:
             if adjacency_matrix[child][i] == 1: # has an edge between "child" and "i"
                 if visit_order[i] == 0: # not visited
                     bridges = Search.bridges(bridges, order, visit_order, low, adjacency_matrix, number_of_vertices, child, i)
-                    if low[i] == visit_order[i]:
+                    if low[i] == visit_order[i]:# thats a bridge
                         bridges.append((child, i))
-                        # thats a bridge
                     low[child] = min(low[child], low[i])
                 elif i != father: # is not the current father
                     # updates the lowest
