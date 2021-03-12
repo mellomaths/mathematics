@@ -1,3 +1,4 @@
+from logging import getLogRecordFactory
 from graph import Graph
 import unittest
 import random
@@ -110,6 +111,25 @@ class TestGraph(unittest.TestCase):
     def test_graph_fathers(self):
         graph = self.graph
         self.assertListEqual(graph.fathers(), [0, 0, 0, 0, 0, 0, 0, 0])
+
+    def test_graph_bridges(self):
+        number_of_vertices = 10
+        edges = [
+            (1, 2),
+            (1, 3),
+            (1, 4),
+            (1, 8),
+            (2, 5),
+            (2, 3),
+            (2, 7),
+            (3, 5),
+            (5, 6),
+            (4, 8),
+            (8, 9),
+            (8, 10)
+        ]
+        graph = Graph(number_of_vertices, edges)
+        print(graph.bridges())
 
 
 if __name__ == "__main__":
