@@ -67,6 +67,7 @@ class Search:
     def bridges(bridges: list, order: int, visit_order: list, low: list, adjacency_matrix: list, number_of_vertices: int, father: int, child: int):
         order += 1
         visit_order[child] = order
+        low[child] = order
         for i in range(number_of_vertices):
             if adjacency_matrix[child][i] == 1: # has an edge between "child" and "i"
                 if visit_order[i] == 0: # not visited
