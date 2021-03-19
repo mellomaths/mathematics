@@ -1,3 +1,6 @@
+from typing import Any
+
+
 def factorial(n):
   """
   Factorial is the product of all positive integers less than or equal to n.
@@ -29,3 +32,16 @@ def fibonacci(n):
     return n
 
   return fibonacci(n-1) + fibonacci(n-2)  
+
+
+class Queue:
+
+  def __init__(self) -> None:
+    self.q = []
+
+  def get(self) -> Any:
+    return self.q.pop(0) 
+  
+  def add(self, element) -> None:
+    self.q.append(element)
+  
