@@ -139,7 +139,7 @@ def prime_factorization(n):
 
 def fermat_factorization(n) :
   """
-  Given an odd integer n, finds 2 factors of an integer n using
+  Given an odd integer n, finds 2 factors of n using
   Fermat's Algorithm, or concludes that n is a prime number
 
   Keyword arguments:
@@ -185,3 +185,57 @@ def multiplicative_order(a, n):
     i += 1
 
   return i
+
+
+def newton_raphson(p, f, df, precision, max_iteration) :
+    """
+    Defines an approximate value as root of a function f
+    based on Newton-Raphson Method
+
+    Keyword arguments:
+    p -- initial point
+    f -- function we want to find a root
+    df -- derivative of f
+    precision -- accuracy of the estimate
+    max_iteration -- maximum number of iterations
+
+    Returns:
+    An estimate for a root of f
+    """
+    
+    for i in range(0, max_iteration) :
+        next = p - (f(p) / df(p))
+        if (abs(f(next)) < precision) :
+            return next
+        p = next
+
+    return "Error"
+
+
+def bisection_method(a, b, f, precision) :
+    """
+    Defines an approximate value as root of a function f
+    based on Bisection Method
+
+    Arguments:
+    a -- lower bound of the interval
+    b -- upper bound of the interval
+    f -- function we want to find the root
+    precision -- accuracy of the estimate
+
+    Returns:
+    An estimate for a root of f
+    """
+    
+    maxIteration = int(((math.log(b - a) - math.log(precision)) / math.log(2))) + 1
+    
+    for i in range(0, maxIteration) :
+        p = (a + b) / 2
+        if (f(p) == 0 or abs(f(p)) < precision) :
+            return p
+        if (f(a) * f(p) < 0) : 
+            b = p
+        else :
+            a = p
+        if ((i + 1) == maxIteration) :
+            return p
