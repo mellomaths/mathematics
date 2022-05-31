@@ -1,5 +1,5 @@
 import unittest
-import calculus
+from calculus import lim
 
 
 class TestCalculus(unittest.TestCase):
@@ -11,5 +11,5 @@ class TestCalculus(unittest.TestCase):
         def g(x: float) -> float:
             return 2*x - 1
         
-        self.assertEqual(calculus.lim(f, 1), 2)
-        self.assertEqual(calculus.lim(g, 3), 5)
+        self.assertEqual(lim(f, 1), 2)
+        self.assertEqual(lim(g, 3), 5)
